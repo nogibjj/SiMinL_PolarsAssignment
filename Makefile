@@ -1,14 +1,14 @@
+
 install:
-	pip install --upgrade pip && pip install -r requirements.txt
+	pip install --upgrade pip && pip install -r Requirements.txt
 
 format:
 	black *.py
 
 lint:
 	pylint --ignore-patterns=test_.*?py *.py
-
-test:
+	
+test: 
 	python -m pytest -cov=main test_main.py
 
-all: 
-	install format lint test
+all: install format lint test 
