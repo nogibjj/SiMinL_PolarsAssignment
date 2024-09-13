@@ -3,33 +3,24 @@ Test goes here
 
 """
 
-from main import description, stats, build_chart
+from main import polars_describe, stats, build_chart
+
+csv = "stocks.csv"
 
 
-def test_stat():
-    result1 = stats()
-    assert result1 is not None
+def test_general_describe():
+    """Function calling general_describe which tests different parts of
+    the dataset"""
 
+    # only works for the example_csv link
+    median_test, desribe_test = polars_describe(csv)
 
-def test_description():
-    result2 = description()
-    assert result2 is None
-
-
-def test_chart():
-    result2 = build_chart()
-    assert result2 is None
-
-
-if __name__ == "__main__":
-    test_calculate_stat()
-    build_histogram()
-
-
-def test_markdown_file():
-    """Function that generates markdown file"""
-    generate_vis_general_polars_congress(example_csv)
-    generate_general_markdown(example_csv)
+    # mean
+    assert median_test["XOM"][0] == 78.50218963623047
+    # standard deviation of XOM
+    assert desribe_test[["describe", "XOM"]][3, 1] == 18.900877
+    # mean of XOM column
+    assert desribe_test[["describe", "XOM"]][2, 1] == 139.345759
 
 
 if __name__ == "__main__":
