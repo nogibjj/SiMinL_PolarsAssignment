@@ -7,7 +7,6 @@ Deliverable:
 Python script
 Generated summary report (PDF or markdown)"""
 
-import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import polars as pl
@@ -35,22 +34,22 @@ def polars_profilesummary(csv):
 
 
 def stats(csv):
-    df = pd.read_csv(csv)
+    """Calculating relevant stats"""
+    data_frame = pd.read_csv(csv)
     ror = df.pct_change() * 100
     mean = ror.mean()
     median = ror.median()
-    sd = ror.std()
-    print(mean, median, sd)
+    standard_deviation = ror.std()
+    print(mean, median, standard_deviation)
 
 
 def build_chart(csv):
     "visualisation of mean return vs risk"
-    df = pd.read_csv(csv)
-    ror = df.pct_change() * 100
+    data_frame = pd.read_csv(csv)
+    ror = data_frame.pct_change() * 100
     mean = ror.mean()
-    median = ror.median()
-    sd = ror.std()
-    plt.scatter(sd, mean, s=df.mean(), alpha=0.4)
+    standard_deviation = ror.std()
+    plt.scatter(standard_deviation, mean, s=data_frame.mean(), alpha=0.4)
     plt.title("Mean Return vs Risk", fontsize=10, fontweight="bold")
     plt.xlabel("Risk (standard deviation)", fontsize=10)
     plt.ylabel("Mean Return", fontsize=10)
