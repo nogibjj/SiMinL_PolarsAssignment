@@ -36,7 +36,7 @@ def polars_profilesummary(csv):
 def stats(csv):
     """Calculating relevant stats"""
     data_frame = pd.read_csv(csv)
-    ror = df.pct_change() * 100
+    ror = data_frame.pct_change() * 100
     mean = ror.mean()
     median = ror.median()
     standard_deviation = ror.std()
