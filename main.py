@@ -20,26 +20,18 @@ def polars_describe(csv):
     return polars_df.median(), polars_df.describe()
 
 
-print(polars_describe("stocks.csv"))
-
-
 def pandas_describe(csv):
     """pandas Describe function in csv"""
     pandas_df = pd.read_csv(csv)
     return pandas_df.describe()
 
 
-# print(pandas_describe("stocks.csv"))
-
-
 def polars_profilesummary(csv):
     """general describe function in csv"""
     polars_df = pl.scan_csv(csv)
-    profile = ProfileReport(polars_df, title="Profiling Report")
+    polars_df = polars_df.collect()
+    profile = ProfileReport(polars_df.to_pandas(), title="Profiling Report")
     profile.to_file("polars.html")
-
-
-polars_profilesummary("stocks.csv")
 
 
 def stats(csv):
@@ -49,9 +41,6 @@ def stats(csv):
     median = ror.median()
     sd = ror.std()
     print(mean, median, sd)
-
-
-# stats("stocks.csv")
 
 
 def build_chart(csv):
@@ -67,10 +56,6 @@ def build_chart(csv):
     plt.ylabel("Mean Return", fontsize=10)
     plt.grid()
     plt.savefig("chart.png")
-    return
-
-
-# build_chart("stocks.csv")
 
 
 def generate_general_markdown(csv):
@@ -80,14 +65,14 @@ def generate_general_markdown(csv):
     markdown_table2 = str(markdown_table2)
 
     # Write the markdown table to a file
-    with open("congress_summary.md", "w", encoding="utf-8") as file:
+    with open("stocks.md", "w", encoding="utf-8") as file:
         file.write("Describe:\n")
         file.write(markdown_table1)
         file.write("\n\n")  # Add a new line
         file.write("Median:\n")
         file.write(markdown_table2)
         file.write("\n\n")  # Add a new line
-        file.write("![congress_viz](Chart.png)\n")
+        file.write("![StocksChart](Chart.png)\n")
 
 
 def generate_summary(csv):
@@ -95,6 +80,3 @@ def generate_summary(csv):
     general_df = pd.read_csv(csv)
     profile = ProfileReport(general_df, title="Profiling Report")
     profile.to_file("profile.html")
-
-
-# generate_summary("stocks.csv")

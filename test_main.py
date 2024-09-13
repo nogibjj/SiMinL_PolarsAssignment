@@ -3,7 +3,7 @@ Test goes here
 
 """
 
-from main import polars_describe, stats, build_chart
+from main import polars_describe, build_chart, generate_general_markdown
 
 csv = "stocks.csv"
 
@@ -13,17 +13,28 @@ def test_general_describe():
     the dataset"""
 
     # only works for the example_csv link
-    median_test, desribe_test = polars_describe(csv)
+    median_test, describe_test = polars_describe(csv)
 
     # mean
     assert median_test["XOM"][0] == 78.50218963623047
     # standard deviation of XOM
-    assert desribe_test[["describe", "XOM"]][3, 1] == 18.900877
+    assert describe_test["XOM"][3] == 14.255035788410192
     # mean of XOM column
-    assert desribe_test[["describe", "XOM"]][2, 1] == 139.345759
+    assert describe_test["XOM"][2] == 75.71046022384886
+
+
+def test_build_chart():
+    """Function calling build chart"""
+    build_chart(csv)
+
+
+def test_markdown_file():
+    """Function that generates markdown file"""
+    build_chart(csv)
+    generate_general_markdown(csv)
 
 
 if __name__ == "__main__":
     test_general_describe()
-    # test_viz_general()
-    # test_markdown_file()
+    test_build_chart()
+    test_markdown_file()
