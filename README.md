@@ -1,6 +1,5 @@
 # Pandas Assignment
 
-
 Requirements
 - Python script for descriptive statistics
 - Read a dataset (CSV or Excel)
@@ -14,3 +13,4 @@ The daily prices of fifteen stocks between Sept 21 and Aug 22 are included in 's
 Summary Stats
 
 Visualisations
+Visualizations can be ran by using python test_main.py calling build_chart()
