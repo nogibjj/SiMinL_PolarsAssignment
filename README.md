@@ -15,9 +15,11 @@ The daily prices of fifteen stocks between Sept 21 and Aug 22 are included in 's
 # Summary Stats
 
 Median
+
 <img width="636" alt="image" src="https://github.com/user-attachments/assets/d158afc8-9625-4316-b646-79e44627f3ab">
 
 Descriptive
+
 <img width="634" alt="image" src="https://github.com/user-attachments/assets/8420536d-0821-414d-959b-a45ac3158e3c">
 
 # Visualisations
