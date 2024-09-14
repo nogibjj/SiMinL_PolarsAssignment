@@ -65,10 +65,10 @@ def generate_general_markdown(csv):
 
     # Write the markdown table to a file
     with open("stocks.md", "w", encoding="utf-8") as file:
-        file.write("Describe:\n")
+        file.write("Median:\n")
         file.write(markdown_table1)
         file.write("\n\n")  # Add a new line
-        file.write("Median:\n")
+        file.write("Descriptive Statistics:\n")
         file.write(markdown_table2)
         file.write("\n\n")  # Add a new line
         file.write(
