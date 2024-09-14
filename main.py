@@ -72,7 +72,7 @@ def generate_general_markdown(csv):
         file.write(markdown_table2)
         file.write("\n\n")  # Add a new line
         file.write(
-            "![StocksChart](Chart.png)\n"
+            "![StocksChart](chart.png)\n"
         )  # Embeds an image with alternative text Stocks Chart
 
 
