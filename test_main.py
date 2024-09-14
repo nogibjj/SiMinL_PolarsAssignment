@@ -30,7 +30,6 @@ def test_build_chart():
 
 def test_markdown_file():
     """Function that generates markdown file"""
-    build_chart(csv)
     generate_general_markdown(csv)
 
 

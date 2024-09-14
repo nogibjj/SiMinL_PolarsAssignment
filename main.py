@@ -71,7 +71,9 @@ def generate_general_markdown(csv):
         file.write("Median:\n")
         file.write(markdown_table2)
         file.write("\n\n")  # Add a new line
-        file.write("![StocksChart](Chart.png)\n")
+        file.write(
+            "![StocksChart](Chart.png)\n"
+        )  # Embeds an image with alternative text Stocks Chart
 
 
 def generate_summary(csv):
