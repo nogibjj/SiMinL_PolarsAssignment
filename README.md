@@ -1,11 +1,11 @@
-[![CI](https://github.com/nogibjj/SiMinL_PandasAssignment/actions/workflows/hello.yml/badge.svg)](https://github.com/nogibjj/SiMinL_PandasAssignment/actions/workflows/hello.yml)
+
 
 # IDS706 Week 2 Pandas Assignment
 
 This repo contains work for the pandas assignment. It sets up an environment on codespaces and uses Github Actions to run a Makefile for the following: make install, make test, make format, make lint. 
 
 # Purpose of Project / Requirements
-- Python script for descriptive statistics
+- Python script using Polars for descriptive statistics
 - Read a dataset (CSV or Excel)
 - Generate summary statistics (mean, median, standard deviation)
 - Create at least one data visualization
