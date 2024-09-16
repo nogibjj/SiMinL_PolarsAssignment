@@ -1,4 +1,4 @@
-
+[![CI](https://github.com/nogibjj/SiMinL_PolarsAssignment/actions/workflows/hello.yml/badge.svg)](https://github.com/nogibjj/SiMinL_PolarsAssignment/actions/workflows/hello.yml)
 
 # IDS706 Week 2 Pandas Assignment
 
